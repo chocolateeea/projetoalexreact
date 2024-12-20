@@ -1,0 +1,32 @@
+.Email {
+    display: flex;
+    text-align: center;
+}
+
+.Email_login {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    height: 70vh;
+
+
+}
+
+.Entrar_button {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    
+    
+    transform: translateY(-170px);
+}
+.Esquci_senha{
+    display: flex;
+    justify-content: center;
+    transform: translateY(-150px);
+    font-size: 12px;
+    gap: 15px;
+}

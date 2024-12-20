@@ -1,0 +1,26 @@
+.Email {
+    display: flex;
+    text-align: center;
+    
+    
+}
+
+.Email_login {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    height: 70vh;
+
+    
+    
+}
+
+.Entrar_button{
+    display: flex;
+    justify-content: center;
+    transform: translateY(-170px);
+
+}
