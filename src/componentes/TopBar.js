@@ -9,7 +9,7 @@ export function TopBar({ children }) {
             <div className={style.topbar_conteudo}>
                
 
-                <Link to="Entrar" className ={style.fonte}>Entrar</Link>
+                <Link to="login" className ={style.fonte}>Entrar</Link>
             
 
             </div>

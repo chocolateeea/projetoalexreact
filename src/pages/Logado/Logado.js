@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import { TopBarUsuario } from '../../componentes/TopBarUsuario/TopbarUsuario';
 import style from './Logado.module.css';
 import UsuarioApi from '../../services/UsuarioApi';
+import { useNavigate } from 'react-router-dom';
 
 
 export function Logado() {
-    const [usuario, setUsuario] = useState({ })
+    const [usuario, setUsuario] = useState({ });
 
-
+   
 
 
     const Id = localStorage.getItem("usuarioId") ;
@@ -30,7 +31,7 @@ export function Logado() {
 
         <TopBarUsuario nomeUsuario={usuario.nome} onClick={null}>
             
-
+                    
 
         </TopBarUsuario>
     )

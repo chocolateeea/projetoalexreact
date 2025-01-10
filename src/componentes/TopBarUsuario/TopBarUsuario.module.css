@@ -32,20 +32,29 @@
     justify-content: flex-end;
     width: 3%;
     text-decoration: none;
+    
 }
 
 .nome{
     display: flex;
     color: white;
     font-size: 14px;
-    gap: 15px;
+    margin-right: 15px;
     align-items: center;
+   
+    
 }
 
 .logout{
     margin-top: 5px;
     display: flex;
     width: 10px;
+    
+}   
+
+.deslogar{
+    background-color: none;
+    color: red;
 }
 
 .dropdownMenu  {
