@@ -1,5 +1,5 @@
 import style from './TopBarUsuario.module.css';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MdOutlineLogout } from "react-icons/md";
 import { useState } from 'react';
 

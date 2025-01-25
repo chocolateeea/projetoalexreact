@@ -1,0 +1,36 @@
+.cor_fundo {
+    overflow: hidden;
+    background-color: #e3f2fd;
+    height: 450px;
+    display: flex;
+    justify-content: end; /* Alinha o container ao lado direito */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.container_itens {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar em várias linhas */
+    gap: 20px; /* Espaçamento entre os itens */
+    justify-content: flex-end; /* Alinha os itens para o lado direito */
+    width: 50%; /* Ajusta a largura total do container */
+}
+
+.corpo_itens {   
+    background-color: #ffffff;
+    flex: 0 0 calc(50% - 20px); /* Garante que dois itens fiquem lado a lado (50% - gap) */
+    padding: 1%;
+    border-radius: 5%;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.container
+{   
+    
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+}

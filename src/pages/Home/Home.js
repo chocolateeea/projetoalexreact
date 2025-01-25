@@ -1,18 +1,18 @@
 import { TopBar } from "../../componentes/TopBar";
-import { TopBarUsuario } from "../../componentes/TopBarUsuario/TopbarUsuario";
-import style from "./Home.module.css"
+import { TopBarEntrar } from "../../componentes/TopBarEntrar/TopBarEntrar";
 
-export function Home () {
 
-    const usuariologado = "Romeuguloso";
-    return (
-      
-            <TopBar>
-               
-              
-                    <h3>Home</h3>
-            </TopBar>
+export function Home() {
 
-    
-    )
+        const usuariologado = "Romeuguloso";
+        return (
+
+                <TopBarEntrar>
+
+
+                        <h3>Home</h3>
+                </TopBarEntrar>
+
+
+        )
 }

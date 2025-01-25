@@ -2,7 +2,6 @@ import { Form } from 'react-bootstrap';
 import { TopBar } from '../../componentes/TopBar';
 import style from './Senha.module.css';
 import { useState } from "react";
-import UsuarioApi from '../../services/UsuarioApi';
 
 export function Senha() {
     const [email, setEmail] = useState('');
