@@ -6,8 +6,9 @@ import { CadastroUsuario } from "./pages/CadastroUsuario/CadastroUsuario";
 import { Senha } from "./pages/EsqueciMinhaSenha/Senha";
 import { Logado } from "./pages/Logado/Logado";
 import { BannerInicial } from "./componentes/BannerInicial/BannerIcial";
+import { CardsProdutos } from "./componentes/CardsProdutos/CardsProdutos";
 
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="senha" element={<Senha />} />
         <Route path="logado" element={<Logado />} />
         <Route path="produtos" element={<BannerInicial />} />
+        <Route path="cards" element={<CardsProdutos />} />
       </Routes>
     </BrowserRouter>
   );

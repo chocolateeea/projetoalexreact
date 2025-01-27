@@ -3,34 +3,95 @@
     background-color: #e3f2fd;
     height: 450px;
     display: flex;
-    justify-content: end; /* Alinha o container ao lado direito */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Alinha os itens de forma similar à Top Bar */
+    align-items: center;
+    padding: 0 12px; /* Ajusta os espaçamentos laterais */
 }
 
 .container_itens {
     display: flex;
-    flex-wrap: wrap; /* Permite quebrar em várias linhas */
-    gap: 20px; /* Espaçamento entre os itens */
-    justify-content: flex-end; /* Alinha os itens para o lado direito */
-    width: 50%; /* Ajusta a largura total do container */
+    flex-wrap: wrap;
+    
+    margin-left: 1%;
+    gap: 20px;
+
+    justify-content: flex-end;
+
+    width: 80%;
+   
+
 }
 
-.corpo_itens {   
+.corpo_itens {
     background-color: #ffffff;
-    flex: 0 0 calc(50% - 20px); /* Garante que dois itens fiquem lado a lado (50% - gap) */
+    flex: 0 0 calc(50% - 20px);
+    /* Garante que dois itens fiquem lado a lado (50% - gap) */
     padding: 1%;
     border-radius: 5%;
     height: 170px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-.container
-{   
-    
+
+.corpo_itens:hover {
+    transform: scale(1.05);
+
+    transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.descricao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+
     display: flex;
     justify-content: flex-start;
-    width: 50%;
+    width: 40%;
+
+}
+
+.feature-icon {
+    color: #007bff;
+
+    font-size: 2rem;
+
+    transition: color 0.3s ease;
+
+}
+
+.titles
+{
+    color: #8abde7;
+}
+
+.titulos {
+    flex-direction: column;
+    width: 50%; /* Aumenta a largura para mais espaço */
+    font-size: 2rem;
+    font-weight: bold;
+    color: #242222;
+    font-family: 'Arial', sans-serif;
+    text-align: left;
+    /* background-color: #b9a7a7; */
+  
+    padding: 100px; /* Aumenta o tamanho interno do corpo */
+}
+
+
+.subtitulos
+{   color: #494848;
+    margin-top: 70px;
+    font-size: 25px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
