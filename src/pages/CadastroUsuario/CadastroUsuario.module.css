@@ -1,6 +1,14 @@
 .Email {
     display: flex;
     text-align: center;
+   
+}
+.topo
+{   
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    
 }
 
 .Email_login {
@@ -12,15 +20,76 @@
     align-items: center;
     height: 70vh;
 
+}
 
+
+.opa{
+    display: flex;
+    justify-content: center;
+    transform: translateY(-100px);
+}
+
+.Esquci_senha{
+    display: flex;
+    justify-content: center;
+    transform: translateY(-150px);
+    font-size: 12px;
+    gap: 15px;
+}
+           
+
+.Email {
+    display: flex;
+    align-items: center; /* Alinha o conteúdo no centro verticalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    border-radius: 50px; /* Bordas arredondadas mais suaves */
+    padding: 12px 20px; /* Adiciona espaço interno */
+    background-color: #f2f2f2; /* Cor de fundo suave */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+    border: 1px solid #ddd; /* Borda discreta */
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+    width: 250px; /* Largura ajustada */
+    height: 45px; /* Altura ajustada */
+    transition: all 0.3s ease; /* Efeito de transição para interatividade */
+}
+
+.Email:hover {
+    background-color: #e0e0e0; /* Altera a cor de fundo ao passar o mouse */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Aumenta a sombra ao passar o mouse */
+    border-color: #bbb; /* Muda a cor da borda no hover */
+}
+
+.Email input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    padding-left: 10px;
+    width: 100%;
+   
+}
+
+.Email .icon {
+    margin-left: 10px;
+    color: #007bff; /* Cor do ícone */
+    font-size: 20px;
+}
+
+
+.Email_login {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    height: 73vh;
 }
 
 .Entrar_button {
     margin-top: 25px;
     display: flex;
     justify-content: center;
-    
-    
     transform: translateY(-170px);
 }
 .Esquci_senha{
@@ -30,3 +99,34 @@
     font-size: 12px;
     gap: 15px;
 }
+
+.Senha {
+    text-decoration: none;
+    color: #fff;
+}
+.criarConta{
+    text-decoration: none;
+    color: #fff;
+}
+ 
+ .corpo {
+    display: flex;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    height: 100vh; /* Garante que o container ocupe toda a altura da tela */
+}
+
+.corpo2 {
+    border-radius: 15px; /* Aumenta o arredondamento para dar um visual mais suave */
+    width: 25%; /* Um pouco mais largo para dar um toque elegante */
+    background-color: #333; /* Um tom de preto mais suave */
+    /* Adiciona algum espaçamento interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar um efeito de profundidade */
+    margin: 5px 0; /* Dá um espaçamento superior e inferior */
+    position: relative;
+    /* Move para a esquerda, deixando menos centralizado */
+}
+
+
+
+

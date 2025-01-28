@@ -4,6 +4,8 @@ import style from "./CadastroUsuario.module.css";
 import UsuarioApi from "../../services/UsuarioApi";
 import { useNavigate } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
+import { TopBarLogin } from "../../componentes/pai/pai";
+import Button from 'react-bootstrap/Button';
 
 export function CadastroUsuario() {
 
@@ -29,89 +31,71 @@ export function CadastroUsuario() {
         return nome && email && senha;
     };
     return (
-        <TopBar>
-            <Form onSubmit={handleSubmit}>
-                <div className={style.Email_login}>
-                    <input
-                        className={style.Email}
-                        type="text"
-                        value={nome}
-                        onChange={(e) => setnome(e.target.value)}
-                        placeholder="Digite seu nome"
-                        required
-                        style={{
-                            border: 'none',
-                            borderBottom: '2px solid #ccc',
-                            outline: 'none',
-                            padding: '5px 0',
-                            width: '15%',
+        <TopBarLogin>
 
-                        }}
+            <div className={style.corpo}>
 
-                    ></input>
+                <div className={style.corpo2}>
+
+                    <Form onSubmit={handleSubmit}>
+                        <div className={style.Email_login}>
+                            <input
+                                className={style.Email}
+                                type="text"
+                                value={nome}
+                                onChange={(e) => setnome(e.target.value)}
+                                placeholder="Digite seu nome"
+                                required
+
+
+                            ></input>
 
 
 
-                    <input
-                        className={style.Email}
-                        type="text"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Digite seu email"
-                        required
-                        style={{
-                            border: 'none',
-                            borderBottom: '2px solid #ccc',
-                            outline: 'none',
-                            padding: '5px 0',
-                            width: '15%',
+                            <input
+                                className={style.Email}
+                                type="text"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Digite seu email"
+                                required
 
-                        }}
 
-                    ></input>
-                    <input
-                        className={style.Email}
-                        type="password"
-                        value={senha}
-                        onChange={(e) => setSenha(e.target.value)}
-                        placeholder="Digite sua senha"
-                        required
-                        style={{
-                            border: 'none',
-                            borderBottom: '2px solid #ccc',
-                            outline: 'none',
-                            padding: '5px 0',
-                            width: '15%',
+                            ></input>
+                            <input
+                                className={style.Email}
+                                type="password"
+                                value={senha}
+                                onChange={(e) => setSenha(e.target.value)}
+                                placeholder="Digite sua senha"
+                                required
 
-                        }}
 
-                    ></input>
+                            ></input>
 
+
+
+
+                        </div>
+
+
+
+
+                        <div className={style.opa}>
+                            <Button type="submit" variant="outline-light">Entrar</Button>
+
+                        </div>
+                    </Form>
 
 
                 </div>
 
-                <div className={style.Entrar_button}>
-                <button
-                    type="submit"
-
-
-                    style={{
-                        border: 'none',
-                        background: 'none',
-                        padding: '5px 0',
-                        cursor: 'pointer',
-                    }}
-
-                >Continuar</button>
             </div>
 
 
-            </Form>
-
-        
 
 
-        </TopBar>
+
+        </TopBarLogin>
     )
 }

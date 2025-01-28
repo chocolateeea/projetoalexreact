@@ -12,8 +12,8 @@ export function TopBarUsuario({ nomeUsuario, children }) {
     const navigate = useNavigate();
     function Deslogar() {
         localStorage.removeItem('usuarioId');
-
-        navigate('/login');
+        
+        navigate('/');
     }
 
     const handleToggleMenu = () => {

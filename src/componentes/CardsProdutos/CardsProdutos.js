@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import product from '../../assets/produtos.png'; // Coloque a imagem real aqui
 import { FaStar, FaRegStar } from 'react-icons/fa';
+import { TopBarEntrar } from '../TopBarEntrar/TopBarEntrar';
 
 export function CardsProdutos() {
     // Função para renderizar estrelas com base na pontuação
@@ -13,6 +14,7 @@ export function CardsProdutos() {
         }
         return estrelas;
     };
+
 
     // Dados dos produtos
     const produtos = [
@@ -33,6 +35,8 @@ export function CardsProdutos() {
     };
 
     return (
+
+
         <div className="container mt-4">
             <div className="row g-4">
                 {/* Mapeamos os produtos para criar os cards */}

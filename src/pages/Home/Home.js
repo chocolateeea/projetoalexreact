@@ -12,6 +12,7 @@ export function Home() {
                 <TopBarEntrar>
                         <BannerInicial />
                         <CardsProdutos>
+                                
                         </CardsProdutos>
                         <Footer/>
                 </TopBarEntrar>
