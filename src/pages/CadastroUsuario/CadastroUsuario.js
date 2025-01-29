@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TopBar } from "../../componentes/TopBar";
+
 import style from "./CadastroUsuario.module.css";
 import UsuarioApi from "../../services/UsuarioApi";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +19,6 @@ export function CadastroUsuario() {
         event.preventDefault();
         if (isFormValid()) {
             await UsuarioApi.criarAsync(nome, email, senha);
-            console.log("aquii", nome, email, senha)
             navigate("/");
 
         } else {

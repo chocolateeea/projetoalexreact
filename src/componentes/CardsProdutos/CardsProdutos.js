@@ -1,11 +1,27 @@
-import React, { use, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import product from '../../assets/produtos.png'; // Coloque a imagem real aqui
 import { FaStar, FaRegStar } from 'react-icons/fa';
-import { TopBarEntrar } from '../TopBarEntrar/TopBarEntrar';
+import ProdutosApi from '../../services/ProdutosApi';
 
-export function CardsProdutos() {
+export function CardsProdutos({ pesquisaValor }) {
+
+    const [produto, setProdutos] = useState([]);
+
+    async function CarregarProdutos() {
+        try {
+           
+            const listaProdutos = await ProdutosApi.listarProdutosAsync(true);
+          
+            setProdutos(listaProdutos)
+           
+        } catch (error) {
+            console.error("Erro ao carregar usuários:", error);
+        }
+    }
+
+
     // Função para renderizar estrelas com base na pontuação
     const renderizarEstrelas = (nota) => {
         const estrelas = [];
@@ -17,14 +33,7 @@ export function CardsProdutos() {
 
 
     // Dados dos produtos
-    const produtos = [
-        { id: 1, nome: "Adesivo Carbono", preco: "R$ 39,90", nota: 4, descricao: "Adesivo de alta qualidade, ideal para personalização e decoração." },
-        { id: 2, nome: "Adesivo Madeira", preco: "R$ 59,90", nota: 5, descricao: "Adesivo texturizado com aparência de madeira natural." },
-        { id: 3, nome: "Adesivo Fosco", preco: "R$ 29,90", nota: 3, descricao: "Adesivo fosco com acabamento premium, ideal para um visual moderno." },
-        { id: 4, nome: "Adesivo Transparente", preco: "R$ 25,90", nota: 4, descricao: "Adesivo transparente ideal para proteção e personalização." },
-        { id: 5, nome: "Adesivo 3D", preco: "R$ 49,90", nota: 5, descricao: "Adesivo com efeito 3D para um visual impactante." },
-        { id: 6, nome: "Adesivo Vinílico", preco: "R$ 34,90", nota: 4, descricao: "Adesivo vinílico de alta resistência para diversas aplicações." },
-    ];
+  
 
     // Estado para o carrinho
     const [carrinho, setCarrinho] = useState([]);
@@ -34,13 +43,23 @@ export function CardsProdutos() {
         setCarrinho([...carrinho, produto]); // Adiciona o produto ao carrinho
     };
 
+    //Filtro de pesquisaValor em produtos
+
+    const produtosFiltrados = produto.filter(produto =>
+        produto.nome.toLowerCase().startsWith(pesquisaValor.toLowerCase())
+    );
+
+    useEffect(() =>{
+        CarregarProdutos()
+    },[])
+
     return (
 
 
         <div className="container mt-4">
             <div className="row g-4">
                 {/* Mapeamos os produtos para criar os cards */}
-                {produtos.map((produto) => (
+                {produtosFiltrados.map((produto) => (
                     <div className="col-md-4 mb-4" key={produto.id}>
                         <Card style={{ width: '20rem' }} className="d-flex flex-column h-100">
                             <Card.Img variant="top" src={product} />
@@ -48,7 +67,7 @@ export function CardsProdutos() {
                                 <Card.Title>{produto.nome}</Card.Title>
                                 <div className="d-flex align-items-center mb-2">
                                     {renderizarEstrelas(produto.nota)}
-                                    <span className="ms-2">({produto.nota}.0)</span> {/* Exibe a nota do produto */}
+                                    <span className="ms-2">({produto.nota}.3)</span> {/* Exibe a nota do produto */}
                                 </div>
                                 <Card.Text>{produto.descricao}</Card.Text>
                                 <h5 className="fw-bold text-primary">{produto.preco}</h5>
@@ -60,6 +79,8 @@ export function CardsProdutos() {
                     </div>
                 ))}
             </div>
+
+
 
             {/* Exibir a contagem de itens no carrinho */}
             <div className="mt-4">

@@ -3,21 +3,19 @@ import style from './TopBarEntrar.module.css';
 import { Search, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import UsuarioApi from '../../services/UsuarioApi';
+import ProtectedRoute from '../../ProtectedRoute';
 
 
-export function TopBarEntrar({ children }) {
+export function TopBarEntrar({ children, setPesquisaValor, pesquisaValor}) {
 
-    const [carrinho, setCarrinho] = useState('30')
-    const [pesquisa, setPesquisa] = useState('');
+    const [carrinho, setCarrinho] = useState([])
+
 
     const adicionarCarrinho = (produto) => {
         setCarrinho((prevCarrinho) => [...prevCarrinho, produto]);
     };
 
-    const fazerPesquisa = () => {
-        console.log('Pesquisa:', pesquisa);
-
-    };
+  
 
     const [usuario, setUsuario] = useState({});
 
@@ -50,22 +48,23 @@ export function TopBarEntrar({ children }) {
                     <input
                         type="text"
                         placeholder="Pesquisar..."
-                        value={pesquisa}
-                        onChange={(e) => setPesquisa(e.target.value)}
+                        value={pesquisaValor}
+                        onChange={(e) => setPesquisaValor(e.target.value)}
                     />
                     <Search id='icon-pesquisa' size={20} className={style.icon} />
                 </div>
+                
                 <ul className={style.top_bar_intens}>
-                    {/* <ProtectedRoute>
+                     <ProtectedRoute>
                         <li className="item-nav">
                         <Link to="/admin" className="link-nav">
                        Administrador
                          </Link>
                       </li>
-                     </ProtectedRoute> */}
+                     </ProtectedRoute> 
                     <li className={style.item_topbar}>
                         <Link to="/login" className={style.link}>
-                            Login
+                            {usuario.nome}
                         </Link>
                     </li>
                     <li className="item-nav">

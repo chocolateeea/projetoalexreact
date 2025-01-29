@@ -7,7 +7,7 @@ const UsuarioApi = {
     async obterAsync(usuarioId) {
         try {
             const response = await HTTPClient.get(`/Usuario/Obter/${usuarioId}?ativo=true`);
-            console.log(response.data);
+            
             return response.data;
         } catch (error) {
             console.error("Erro ao obter usuário:", error);
@@ -17,6 +17,7 @@ const UsuarioApi = {
     async listarAsync(ativos) {
         try {
             const response = await HTTPClient.get(`/Usuario/Listar?ativos=${ativos}`);
+            
             return response.data;
         } catch (error) {
             console.error("Erro ao listar usuários:", error);

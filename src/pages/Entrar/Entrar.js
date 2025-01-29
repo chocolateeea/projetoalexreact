@@ -5,10 +5,12 @@ import UsuarioApi from "../../services/UsuarioApi";
 
 import Button from 'react-bootstrap/Button';
 
-import { TopBarEntrar } from "../../componentes/TopBarEntrar/TopBarEntrar";
+
 import './Entrar.module.css';
 import { TopBarLogin } from "../../componentes/pai/pai";
 import { Footer } from "../../componentes/Footer/Footer";
+
+
 export function Entrar() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import style from './Topbarlogin.module.css';
-import { Search, ShoppingCart } from 'lucide-react';
+
+import style from "./Topbarlogin.module.css";
+
 import { Link } from 'react-router-dom';
-import UsuarioApi from '../../services/UsuarioApi';
+
 
 
 export function TopBarLogin({ children }) {
@@ -14,10 +15,6 @@ export function TopBarLogin({ children }) {
         setCarrinho((prevCarrinho) => [...prevCarrinho, produto]);
     };
 
-    const fazerPesquisa = () => {
-        console.log('Pesquisa:', pesquisa);
-
-    };
 
     // const [usuario, setUsuario] = useState({});
 

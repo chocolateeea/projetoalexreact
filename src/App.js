@@ -5,10 +5,13 @@ import { Entrar } from "./pages/Entrar/Entrar";
 import { CadastroUsuario } from "./pages/CadastroUsuario/CadastroUsuario";
 import { Senha } from "./pages/EsqueciMinhaSenha/Senha";
 import { Logado } from "./pages/Logado/Logado";
-import { BannerInicial } from "./componentes/BannerInicial/BannerIcial";
+
 import { CardsProdutos } from "./componentes/CardsProdutos/CardsProdutos";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Produtos } from "./pages/Produtos/Produtos";
+import ProtectedRoute from "./ProtectedRoute";
+import Admin from "./pages/PaginaAdm/PageAdmin";
 
 function App() {
   return (
@@ -21,9 +24,14 @@ function App() {
         <Route path="Conta" element={<CadastroUsuario />} />
         <Route path="senha" element={<Senha />} />
         <Route path="logado" element={<Logado />} />
-        <Route path="produtos" element={<BannerInicial />} />
+        <Route path="produtos" element={<Produtos />} />
         <Route path="cards" element={<CardsProdutos />} />
+
+        <Route path="/admin" element={ <ProtectedRoute><Admin/> </ProtectedRoute>}
+        />
       </Routes>
+
+     
     </BrowserRouter>
   );
 }
