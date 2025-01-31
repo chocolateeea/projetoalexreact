@@ -2,6 +2,7 @@ import { Form } from 'react-bootstrap';
 import { TopBar } from '../../componentes/TopBar';
 import style from './Senha.module.css';
 import { useState } from "react";
+import { TopBarLogin } from '../../componentes/pai/pai';
 
 export function Senha() {
     const [email, setEmail] = useState('');
@@ -10,7 +11,7 @@ export function Senha() {
   
     return (
 
-        <TopBar>
+        <TopBarLogin>
             <Form>
 
                 <div className={style.Email_login}>
@@ -53,6 +54,6 @@ export function Senha() {
 
             </Form>
 
-        </TopBar>
+        </TopBarLogin>
     )
 }

@@ -5,23 +5,18 @@ import { FaStar, FaRegStar } from 'react-icons/fa';
 import ProdutosApi from '../../services/ProdutosApi';
 import styles from './PageAdmin.module.css';
 
-
-
 function Admin({ pesquisaValor = '' }) {
   const [produto, setProdutos] = useState([]);
   const [carrinho, setCarrinho] = useState([]);
 
-
   const [nome, setNome] = useState('');
-  const [preco, setpreco] = useState('');
-  const [descricao, setdescricao] = useState('');
-
+  const [preco, setPreco] = useState('');
+  const [descricao, setDescricao] = useState('');
 
   const [showNovoProduto, setShowNovoProduto] = useState(false);
   const [showModalEditar, setShowModalEditar] = useState(false);
   const [showModalDeletar, setShowModalDeletar] = useState(false);
   const [produtoEditando, setProdutoEditando] = useState(null);
-
 
   async function CarregarProdutos() {
     try {
@@ -34,9 +29,9 @@ function Admin({ pesquisaValor = '' }) {
 
   async function DeletarProduto() {
     try {
-      await ProdutosApi.deletarProdutoAsync(produtoEditando.id)
+      await ProdutosApi.deletarProdutoAsync(produtoEditando.id);
       setProdutos(produto.filter((p) => p.id !== produtoEditando.id));
-      fecharModalDeletar();
+      fecharTodosOsModais(); // Fecha todos os modais após a exclusão
     } catch (error) {
       console.error('Erro ao deletar produtos:', error);
     }
@@ -48,36 +43,39 @@ function Admin({ pesquisaValor = '' }) {
         produtoEditando.id,
         produtoEditando.nome,
         produtoEditando.preco,
-        produtoEditando.descricao)
+        produtoEditando.descricao
+      );
       CarregarProdutos();
+      fecharTodosOsModais(); // Fecha todos os modais após a edição
     } catch (error) {
-      console.error("Erro ao atualizar o grupo de usuario:", error);
-    } finally {
-      fecharModalEditar();
+      console.error("Erro ao atualizar o produto:", error);
     }
   }
 
   useEffect(() => {
-
     CarregarProdutos();
   }, []);
 
   async function CriarProduto(e) {
     e.preventDefault();
     try {
-
-
-      console.log("chegando da função")
+      console.log("chegando da função");
       await ProdutosApi.criarProdutoAsync(nome, preco, descricao);
-      console.log("depos da função")
-       CarregarProdutos();
-       fecharModalCriar();
-
-
+      console.log("depois da função");
+      CarregarProdutos();
+      fecharTodosOsModais(); // Fecha todos os modais após a criação
     } catch (error) {
-      console.error("Erro ao criar o grupo de usuario:", error);
+      console.error("Erro ao criar o produto:", error);
     }
   }
+
+  // Função para fechar todos os modais
+  const fecharTodosOsModais = () => {
+    setShowNovoProduto(false);
+    setShowModalEditar(false);
+    setShowModalDeletar(false);
+    setProdutoEditando(null);
+  };
 
   const renderizarEstrelas = (nota) => {
     const estrelas = [];
@@ -85,9 +83,6 @@ function Admin({ pesquisaValor = '' }) {
       estrelas.push(i <= nota ? <FaStar key={i} color="#FFD700" /> : <FaRegStar key={i} color="#CCCCCC" />);
     }
     return estrelas;
-  };
-  const adicionarAoCarrinho = (produto) => {
-    setCarrinho([...carrinho, produto]);
   };
 
   const abrirModalDeletar = (produto) => {
@@ -99,15 +94,6 @@ function Admin({ pesquisaValor = '' }) {
     setShowModalDeletar(false);
     setProdutoEditando(null);
   };
-
-  const fecharModalCriar = () => {
-    setShowNovoProduto(false);
-    setProdutoEditando(null);
-  };
-
-
-
-
 
   const abrirModalEditar = (produto) => {
     setProdutoEditando(produto);
@@ -123,13 +109,16 @@ function Admin({ pesquisaValor = '' }) {
     setProdutoEditando({ ...produtoEditando, [e.target.name]: e.target.value });
   };
 
-  const isformvalid = () => {
-    return nome && preco && descricao
-  }
+
 
   const produtosFiltrados = produto.filter((p) =>
     p.nome.toLowerCase().startsWith(pesquisaValor.toLowerCase())
   );
+
+  const formatarPreco = (valor) => {
+    
+    return parseFloat(valor).toFixed(2);
+  };
 
   return (
     <div className={styles.adminContainer}>
@@ -137,7 +126,6 @@ function Admin({ pesquisaValor = '' }) {
         <h1>Gerenciamento de Produtos</h1>
         <Button onClick={() => setShowNovoProduto(true)}>+ Novo Produto</Button>
       </header>
-
 
       <div className="container mt-4">
         <div className="row g-4">
@@ -152,7 +140,7 @@ function Admin({ pesquisaValor = '' }) {
                     <span className="ms-2">({produto.nota}.3)</span>
                   </div>
                   <Card.Text>{produto.descricao}</Card.Text>
-                  <h5 className="fw-bold text-primary">{produto.preco}</h5>
+                  <h5 className="fw-bold text-primary">{formatarPreco(produto.preco)}</h5>
                   <Button onClick={() => abrirModalDeletar(produto)} variant="danger">
                     Deletar
                   </Button>
@@ -165,7 +153,8 @@ function Admin({ pesquisaValor = '' }) {
           ))}
         </div>
       </div>
-      <Modal show={showNovoProduto} onHide={() => setShowNovoProduto(false)}>
+
+      <Modal show={showNovoProduto} onHide={fecharTodosOsModais}>
         <Modal.Header closeButton>
           <Modal.Title>Novo Produto</Modal.Title>
         </Modal.Header>
@@ -190,7 +179,7 @@ function Admin({ pesquisaValor = '' }) {
                 placeholder="Digite uma descrição"
                 name="descricao"
                 value={descricao}
-                onChange={(e) => setdescricao(e.target.value)}
+                onChange={(e) => setDescricao(e.target.value)}
                 required
               />
             </Form.Group>
@@ -202,22 +191,18 @@ function Admin({ pesquisaValor = '' }) {
                 placeholder="Digite o valor"
                 name="preco"
                 value={preco}
-                onChange={(e) => setpreco(e.target.value)}
+                onChange={(e) => setPreco(e.target.value)}
                 required
               />
             </Form.Group>
 
             <Modal.Footer>
-              <Button variant="secondary" onClick={() => setShowNovoProduto(false)}>Fechar</Button>
+              <Button variant="secondary" onClick={fecharTodosOsModais}>Fechar</Button>
               <Button type="submit" variant="primary">Salvar</Button>
             </Modal.Footer>
           </Form>
         </Modal.Body>
-
-
-
       </Modal>
-
 
       {/* MODAL DE EDIÇÃO */}
       <Modal show={showModalEditar} onHide={fecharModalEditar}>
@@ -284,8 +269,8 @@ function Admin({ pesquisaValor = '' }) {
           </Button>
         </Modal.Footer>
       </Modal>
-    </div >
+    </div>
   );
 }
 
-export default Admin; 
+export default Admin;

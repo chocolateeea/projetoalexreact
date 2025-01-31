@@ -1,14 +1,15 @@
 /* .topo_conteudo */
 .topo_conteudo {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    gap: 12px; /* Espaçamento entre os itens */
+    gap: 12px;
+    /* Espaçamento entre os itens */
     padding: 12px;
     background-color: #333;
 }
 
-.logo_pesquisa{
+.logo_pesquisa {
     display: flex;
     flex-direction: row;
     width: 50%;
@@ -16,11 +17,19 @@
 
 }
 
+.botao {
+    border-radius: none !important;
+    
+    color: inherit;
+    
+}
 
 .link_botao {
     text-decoration: none;
-    color: inherit; /* Mantém a cor padrão do texto */
+    color: inherit;
+    
 }
+
 .logo h1 {
     font-size: 20px;
     color: #fff;
@@ -29,7 +38,8 @@
     margin: 0 0 0 20px;
     text-align: start;
 }
-.logo{
+
+.logo {
     width: 30%;
 }
 
@@ -41,7 +51,8 @@
     align-items: center;
     justify-content: flex-start;
     width: 60%;
-    margin-right: 10px; /* Ajuste para remover o empurrão à direita */
+    margin-right: 10px;
+    /* Ajuste para remover o empurrão à direita */
     border-radius: 10px;
     background-color: #fff;
     padding: 10px 5px;
@@ -75,9 +86,11 @@
 
 
 }
-span{
+
+span {
     color: #fff;
 }
+
 .item_topbar {
     margin-left: 20px;
     font-size: 18px;
@@ -112,12 +125,13 @@ span{
     font-size: 12px;
 }
 
-.botao_carrinho{
+.botao_carrinho {
     display: flex;
     flex-direction: row;
     gap: 5px;
     align-items: center;
-    & svg{
+
+    & svg {
         color: white;
     }
 
@@ -126,15 +140,11 @@ span{
 
 
 .botao_carrinho:hover svg {
-    color: #a5a4a4; /* Muda a cor do ícone ao passar o mouse */
+    color: #a5a4a4;
+    /* Muda a cor do ícone ao passar o mouse */
 }
+
 .botao_carrinho:hover span {
-    color: #a5a4a4; /* Muda a cor do ícone ao passar o mouse */
+    color: #a5a4a4;
+    /* Muda a cor do ícone ao passar o mouse */
 }
-
-
-
-
-
-
-

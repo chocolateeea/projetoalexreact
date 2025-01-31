@@ -13,7 +13,7 @@ export function CardsProdutos({ carrinho, setCarrinho, pesquisaValor }) {
     
     const [produtos, setProdutos] = useState([]);
 
-    // Função para carregar os produtos
+  
     async function CarregarProdutos() {
         try {
             const listaProdutos = await ProdutosApi.listarProdutosAsync(true);
@@ -28,7 +28,7 @@ export function CardsProdutos({ carrinho, setCarrinho, pesquisaValor }) {
         setCarrinho(novosProdutos);
         localStorage.setItem("Carrinho", JSON.stringify(novosProdutos));
     }
-    // Função para renderizar estrelas com base na pontuação
+ 
     const renderizarEstrelas = (nota) => {
         const estrelas = [];
         for (let i = 1; i <= 5; i++) {
@@ -37,18 +37,21 @@ export function CardsProdutos({ carrinho, setCarrinho, pesquisaValor }) {
         return estrelas;
     };
 
+    const formatarPreco = (valor) => {
+    
+        return parseFloat(valor).toFixed(2);
+      };
 
-
-    // Filtro de pesquisa por nome de produto
+ 
     const produtosFiltrados = produtos.filter(produto =>
         produto.nome.toLowerCase().startsWith(pesquisaValor.toLowerCase())
     );
 
-    // Carregar os produtos quando o componente for montado
+
     useEffect(() => {
         CarregarProdutos();
         
-    }, []); // Somente quando o componente for montado
+    }, []); 
 
     return (
         <div className="container mt-4">
@@ -65,7 +68,7 @@ export function CardsProdutos({ carrinho, setCarrinho, pesquisaValor }) {
                                     <span className="ms-2">({produto.nota}.3)</span>
                                 </div>
                                 <Card.Text>{produto.descricao}</Card.Text>
-                                <h5 className="fw-bold text-primary">{produto.preco}</h5>
+                                <h5 className="fw-bold text-primary">{formatarPreco(produto.preco)}</h5>
                                 <Button onClick={() => adicionarAoCarrinho(produto)} variant="primary">
                                     Comprar
                                 </Button>

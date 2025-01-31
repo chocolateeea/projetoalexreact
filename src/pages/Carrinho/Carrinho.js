@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 export function Carrinho() {
 
 
-
+ 
 
     const [produtosRecuperados, setProdutosRecuperados] = useState(JSON.parse(localStorage.getItem("Carrinho")) || []);
     const navigate = useNavigate();
@@ -27,10 +27,16 @@ export function Carrinho() {
         const index = produtosAtualizados.findIndex(produto => produto.id === produtoId);
 
         if (index !== -1) {
-            produtosAtualizados.splice(index, 1); // Remove apenas UM item do array
+            produtosAtualizados.splice(index, 1); 
             setProdutosRecuperados(produtosAtualizados);
             localStorage.setItem("Carrinho", JSON.stringify(produtosAtualizados));
+            localStorage.removeItem("Carrinho") 
         }
+    };
+
+    const formatarPreco = (valor) => {
+    
+        return parseFloat(valor).toFixed(2);
     };
 
     const calcularTotalCarrinho = () => {
@@ -39,7 +45,7 @@ export function Carrinho() {
 
     return (
         <TopBarEntrar carrinho={produtosRecuperados} setPesquisaValor='' pesquisaValor=''>
-            {/* Flexbox Container para garantir o footer na parte inferior */}
+          
             <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
                 <div style={{ flex: 1 }}>
                     <div className="container mt-4">
@@ -54,8 +60,8 @@ export function Carrinho() {
                                                 {renderizarEstrelas(produto.nota)}
                                             </div>
                                             <Card.Text>{produto.descricao}</Card.Text>
-                                            <h5 className="fw-bold text-primary">R$ {produto.preco}</h5>
-                                            <Button variant="danger" onClick={() => removerDoCarrinho(produto.id)}>
+                                            <h5 className="fw-bold text-primary">R$ {formatarPreco(produto.preco)}</h5>
+                                            <Button variant="danger" onClick={() => removerDoCarrinho (produto.id)}>
                                                 Remover do Carrinho
                                             </Button>
                                         </Card.Body>
@@ -64,7 +70,7 @@ export function Carrinho() {
                             ))}
 
                         </div>
-                        <Button onClick={Pagina} variant="success" className="mt-3">Finalizar Compra</Button>
+                        <Button onClick={Pagina} variant="primary" className="mt-3">Finalizar Compra</Button>
 
                         <div style={{ textAlign: 'center', marginTop: '20px' }}>
                             <h3>Total: R$ {calcularTotalCarrinho()}</h3>
@@ -72,7 +78,7 @@ export function Carrinho() {
                     </div>
                 </div>
 
-                {/* Rodapé sempre estará na parte inferior */}
+                {/* Rodapé */}
                 <Footer />
             </div>
         </TopBarEntrar>
