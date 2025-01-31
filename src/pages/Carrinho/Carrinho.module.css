@@ -1,0 +1,58 @@
+.carrinhoConteudo {
+    padding: 20px;
+}
+
+.produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cardProduto {
+    width: 250px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.imagemProduto {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.infoProduto {
+    margin-bottom: 10px;
+}
+
+.totalCarrinho {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.removerProduto {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.removerProduto:hover {
+    background-color: darkred;
+}
+
+.vazioCarrinho {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+.botao{
+    display: flex;
+}
