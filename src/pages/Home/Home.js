@@ -7,13 +7,12 @@ import { TopBarEntrar } from "../../componentes/TopBarEntrar/TopBarEntrar";
 
 export function Home() {
         const [pesquisaValor, setPesquisaValor] = useState("")
-
+        const [carrinho, setCarrinho] = useState ([])
         return (
 
-                <TopBarEntrar setPesquisaValor={setPesquisaValor}  pesquisaValor={pesquisaValor}>
+                <TopBarEntrar carrinho={carrinho} setPesquisaValor={setPesquisaValor}  pesquisaValor={pesquisaValor}>
                         <BannerInicial />
-                        <CardsProdutos pesquisaValor={pesquisaValor}>
-                                
+                        <CardsProdutos carrinho={carrinho} setCarrinho={setCarrinho} pesquisaValor={pesquisaValor}>
                         </CardsProdutos>
                         <Footer/>
                 </TopBarEntrar>

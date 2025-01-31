@@ -31,7 +31,7 @@ const ProdutosApi = {
                 preco: preco,
                 descricao: descricao
             };
-            const response = await HTTPClient.post(`/Usuario/Criar`, produtoCriar);
+            const response = await HTTPClient.post(`/Produto/Criar`, produtoCriar);
             return response.data;
         } catch (error) {
             console.error("Erro ao criar um produto:", error);

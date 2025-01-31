@@ -6,7 +6,7 @@ const UsuarioApi = {
    
     async obterAsync(usuarioId) {
         try {
-            const response = await HTTPClient.get(`/Usuario/Obter/${usuarioId}?ativo=true`);
+            const response = await HTTPClient.get(`/usuario/Obter/${usuarioId}?ativo=true`);
             
             return response.data;
         } catch (error) {
@@ -104,6 +104,7 @@ const UsuarioApi = {
             const dadosLogin = {
                 Email: email,
                 Senha: senha
+                
             };
             const response = await HTTPClient.post(`/Usuario/Logar`, dadosLogin)
              return response.data;

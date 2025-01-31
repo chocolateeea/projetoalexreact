@@ -1,26 +1,46 @@
 /* .topo_conteudo */
 .topo_conteudo {
     display: flex;
-    justify-content: end; /* Alinha os itens à esquerda */
+    justify-content: space-between;
     align-items: center;
     gap: 12px; /* Espaçamento entre os itens */
     padding: 12px;
     background-color: #333;
 }
+
+.logo_pesquisa{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+
+}
+
+
+.link_botao {
+    text-decoration: none;
+    color: inherit; /* Mantém a cor padrão do texto */
+}
 .logo h1 {
-    font-size: 25px;
+    font-size: 20px;
     color: #fff;
     font-family: 'Arial', sans-serif;
     font-weight: bold;
-    margin-right: 145px;
+    margin: 0 0 0 20px;
+    text-align: start;
 }
+.logo{
+    width: 30%;
+}
+
+
 
 /* Pesquisa */
 .pesquisa {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 30%;
+    width: 60%;
     margin-right: 10px; /* Ajuste para remover o empurrão à direita */
     border-radius: 10px;
     background-color: #fff;
@@ -47,15 +67,17 @@
 /* Itens Entrar, Carrinho */
 .top_bar_intens {
     display: flex;
-    justify-content: flex-end;
-    margin-right: 145px;
     align-items: center;
     list-style: none;
     gap: 15px;
+    margin: 0;
+    width: 40%;
 
 
 }
-
+span{
+    color: #fff;
+}
 .item_topbar {
     margin-left: 20px;
     font-size: 18px;
@@ -90,14 +112,23 @@
     font-size: 12px;
 }
 
-.botao_carrinho svg {
-    width: 24px;
-    height: 24px;
-    color: #f5f1f1;
-    transition: color 0.3s ease;
+.botao_carrinho{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    & svg{
+        color: white;
+    }
+
+
 }
 
+
 .botao_carrinho:hover svg {
+    color: #a5a4a4; /* Muda a cor do ícone ao passar o mouse */
+}
+.botao_carrinho:hover span {
     color: #a5a4a4; /* Muda a cor do ícone ao passar o mouse */
 }
 

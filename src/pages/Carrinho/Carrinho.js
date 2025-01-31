@@ -5,9 +5,11 @@ import { Button, Card } from 'react-bootstrap';
 import Black from '../../assets/Black.jpg';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import style from './Carrinho.module.css';
 
 export function Carrinho() {
+
+
+
 
     const [produtosRecuperados, setProdutosRecuperados] = useState(JSON.parse(localStorage.getItem("Carrinho")) || []);
     const navigate = useNavigate();
@@ -42,8 +44,8 @@ export function Carrinho() {
                 <div style={{ flex: 1 }}>
                     <div className="container mt-4">
                         <div className="row g-4">
-                            {produtosRecuperados.map((produto) => (
-                                <div className="col-md-4 mb-4" key={produto.id}>
+                            {produtosRecuperados.map((produto, index) => (
+                                <div className="col-md-4 mb-4" key={`${produto.id}-${index}`}>
                                     <Card style={{ width: '20rem' }}>
                                         <Card.Img variant="top" src={Black} />
                                         <Card.Body>
@@ -60,13 +62,11 @@ export function Carrinho() {
                                     </Card>
                                 </div>
                             ))}
-                        </div >
-                        <div className={style.botao}>
-                            <Button onClick={Pagina} variant="success" className="mt-3">Finalizar Compra</Button>
+
                         </div>
+                        <Button onClick={Pagina} variant="success" className="mt-3">Finalizar Compra</Button>
 
-
-                        <div className={style.valor_total} style={{ textAlign: 'center', marginTop: '20px' }}>
+                        <div style={{ textAlign: 'center', marginTop: '20px' }}>
                             <h3>Total: R$ {calcularTotalCarrinho()}</h3>
                         </div>
                     </div>

@@ -23,11 +23,12 @@ export function Entrar() {
             console.error("Por favor, preencha ambos os campos.");
             return;
         }
-
+    
         try {
             const response = await UsuarioApi.validarLogin(email, senha);
             if (response.success) {
-                localStorage.setItem("usuarioId", response.usuarioId);
+                localStorage.setItem("tipoUsuario", response.tipoUsuario);
+                localStorage.setItem("idUsuario", response.usuarioId);
                 console.log("Login bem-sucedido!");
                 navigate("/");
             } else {
