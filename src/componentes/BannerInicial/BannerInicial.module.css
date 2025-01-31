@@ -3,29 +3,23 @@
     background-color: #e3f2fd;
     height: 450px;
     display: flex;
-    justify-content: space-between; /* Alinha os itens de forma similar à Top Bar */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 12px; /* Ajusta os espaçamentos laterais */
+    padding: 0 12px;
 }
 
 .container_itens {
     display: flex;
     flex-wrap: wrap;
-    
     margin-left: 1%;
     gap: 20px;
-
     justify-content: flex-end;
-
     width: 80%;
-   
-
 }
 
 .corpo_itens {
     background-color: #ffffff;
     flex: 0 0 calc(50% - 20px);
-    /* Garante que dois itens fiquem lado a lado (50% - gap) */
     padding: 1%;
     border-radius: 5%;
     height: 170px;
@@ -33,15 +27,13 @@
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.3s ease-in-out; 
 }
 
 .corpo_itens:hover {
-    transform: scale(1.05);
-
-    transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-
+    transform: none; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
 }
 
 .descricao {
@@ -53,43 +45,34 @@
 }
 
 .container {
-
     display: flex;
     justify-content: flex-start;
     width: 40%;
-
 }
 
 .feature-icon {
     color: #007bff;
-
     font-size: 2rem;
-
     transition: color 0.3s ease;
-
 }
 
-.titles
-{
-    color: #8abde7;
+.titles {
+    color: #1e83f0;
 }
 
 .titulos {
     flex-direction: column;
-    width: 50%; /* Aumenta a largura para mais espaço */
+    width: 50%;
     font-size: 2rem;
     font-weight: bold;
     color: #242222;
     font-family: 'Arial', sans-serif;
     text-align: left;
-    /* background-color: #b9a7a7; */
-  
-    padding: 100px; /* Aumenta o tamanho interno do corpo */
+    padding: 100px;
 }
 
-
-.subtitulos
-{   color: #494848;
+.subtitulos {
+    color: #242222;
     margin-top: 70px;
     font-size: 25px;
     font-style: italic;

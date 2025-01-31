@@ -3,11 +3,11 @@ import { HTTPClient } from "./client";
 
 
 const UsuarioApi = {
-   
+
     async obterAsync(usuarioId) {
         try {
             const response = await HTTPClient.get(`/usuario/Obter/${usuarioId}?ativo=true`);
-            
+
             return response.data;
         } catch (error) {
             console.error("Erro ao obter usuário:", error);
@@ -17,21 +17,23 @@ const UsuarioApi = {
     async listarAsync(ativos) {
         try {
             const response = await HTTPClient.get(`/Usuario/Listar?ativos=${ativos}`);
-            
+
             return response.data;
         } catch (error) {
             console.error("Erro ao listar usuários:", error);
             throw error;
         }
     },
-    async criarAsync(nome, email, senha) {
+    async criarAsync(nome, email, senha, tipo) {
         try {
-          
+
             const usuarioCriar = {
-                
+
                 Nome: nome,
                 Email: email,
-                Senha: senha
+                Senha: senha,
+                tipo: tipo
+               
             };
             const response = await HTTPClient.post(`/Usuario/Criar`, usuarioCriar);
             return response.data;
@@ -40,14 +42,14 @@ const UsuarioApi = {
             throw error;
         }
     },
-    async atualizarAsync(id, nome, email, ) {
+    async atualizarAsync(id, nome, email,) {
         try {
-            
+
             const usuarioAtualizar = {
                 Id: id,
                 Nome: nome,
                 Email: email,
-                
+
             };
             console.log(usuarioAtualizar);
             const response = await HTTPClient.put(`/Usuario/Atualizar`, usuarioAtualizar);
@@ -104,13 +106,13 @@ const UsuarioApi = {
             const dadosLogin = {
                 Email: email,
                 Senha: senha
-                
+
             };
             const response = await HTTPClient.post(`/Usuario/Logar`, dadosLogin)
-             return response.data;
+            return response.data;
         } catch (error) {
             console.error("Erro ao validar login:", error);
-            throw error;  
+            throw error;
         }
     }
 

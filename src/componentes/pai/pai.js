@@ -16,25 +16,6 @@ export function TopBarLogin({ children }) {
     };
 
 
-    // const [usuario, setUsuario] = useState({});
-
-    // const Id = localStorage.getItem("usuarioId");
-
-    // const buscarNomeUsuario = async () => {
-    //     try {
-    //         const resposta = await UsuarioApi.obterAsync(Id)
-    //         setUsuario(resposta);
-
-    //     } catch (error) {
-    //         console.error("Erro ao buscar o nome do usuário:", error);
-
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     buscarNomeUsuario()
-    // }, [Id])
-
     return (
         <div>
             <div className={style.topo_conteudo}>
@@ -57,7 +38,7 @@ export function TopBarLogin({ children }) {
                     </li>
                  
                     <li className="item-nav">
-                        <Link to="/IA" className={style.link}>
+                        <Link to="/DuvidasIA" className={style.link}>
                             DuvidasIA
                         </Link>
                     </li>

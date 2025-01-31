@@ -5,33 +5,30 @@ import { Link, useNavigate } from 'react-router-dom';
 import UsuarioApi from '../../services/UsuarioApi';
 import ProtectedRoute from '../../ProtectedRoute';
 
-
-
 export function TopBarEntrar({ carrinho, children, setPesquisaValor, pesquisaValor }) {
-
     const [usuario, setUsuario] = useState({});
-  
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
-   
-   
-  
+
+    function removerusuario() {
+        localStorage.removeItem("idUsuario");
+        localStorage.removeItem("tipoUsuario");  
+        navigate("/login");  
+    }
 
     const buscarNomeUsuario = async () => {
         const Id = localStorage.getItem("idUsuario");
+     
 
         try {
-            const resposta = await UsuarioApi.obterAsync(Id)
-           
-            setUsuario(resposta);
-
+            if (Id) {
+                const resposta = await UsuarioApi.obterAsync(Id);
+                setUsuario(resposta);
+            }
         } catch (error) {
             console.error("Erro ao buscar o nome do usuário:", error);
         }
     };
-    // const produtosFiltrados = produtos.filter(produto =>
-    //     produto.nome.toLowerCase().startsWith(pesquisaValor.toLowerCase())
-    // );
 
     useEffect(() => {
         buscarNomeUsuario();
@@ -45,7 +42,6 @@ export function TopBarEntrar({ carrinho, children, setPesquisaValor, pesquisaVal
                         <Link to='/' className={style.link_botao}>
                             <h1>Pro2 Adesivos</h1>
                         </Link>
-
                     </div>
 
                     <div className={style.pesquisa}>
@@ -67,18 +63,28 @@ export function TopBarEntrar({ carrinho, children, setPesquisaValor, pesquisaVal
                             </Link>
                         </li>
                     </ProtectedRoute>
-                    <li className={style.item_topbar}>
-                        <Link to="/login" className={style.link}>
-                            {usuario.nome}
-                        </Link>
-                    </li>
+
+                    {/* Se o idUsuario estiver presente, mostrar nome do usuário */}
+                    {localStorage.getItem("idUsuario") ? (
+                        <li className={style.item_topbar}>
+                            <Link  onClick={removerusuario} className={style.link}>
+                                {usuario.nome}
+                            </Link>
+                        </li>
+                    ) : (
+                        <li className={style.item_topbar}>
+                            <Link to="/login" className={style.link}>
+                                Login
+                            </Link>
+                        </li>
+                    )}
                     <li className="item-nav">
                         <Link to="/produtos" className={style.link}>
                             Produtos
                         </Link>
                     </li>
                     <li className="item-nav">
-                        <Link to="/IA" className={style.link}>
+                        <Link to="/DuvidasIA" className={style.link}>
                             DuvidasIA
                         </Link>
                     </li>

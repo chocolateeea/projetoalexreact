@@ -44,7 +44,7 @@
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     border-radius: 50px; /* Bordas arredondadas mais suaves */
     padding: 12px 20px; /* Adiciona espaço interno */
-    background-color: #f2f2f2; /* Cor de fundo suave */
+    background-color: #fff; /* Cor de fundo suave */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
     border: 1px solid #ddd; /* Borda discreta */
     font-size: 16px; /* Ajusta o tamanho da fonte */
@@ -54,9 +54,9 @@
 }
 
 .Email:hover {
-    background-color: #e0e0e0; /* Altera a cor de fundo ao passar o mouse */
+    background-color: #fff; /* Altera a cor de fundo ao passar o mouse */
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Aumenta a sombra ao passar o mouse */
-    border-color: #bbb; /* Muda a cor da borda no hover */
+    border-color: #fff; /* Muda a cor da borda no hover */
 }
 
 .Email input {
@@ -111,20 +111,20 @@
  
  .corpo {
     display: flex;
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    align-items: center; /* Centraliza os itens verticalmente */
-    height: 100vh; /* Garante que o container ocupe toda a altura da tela */
+    justify-content: center; 
+    align-items: center;
+    height: 100vh; 
 }
 
 .corpo2 {
-    border-radius: 15px; /* Aumenta o arredondamento para dar um visual mais suave */
-    width: 25%; /* Um pouco mais largo para dar um toque elegante */
-    background-color: #333; /* Um tom de preto mais suave */
-    /* Adiciona algum espaçamento interno */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar um efeito de profundidade */
-    margin: 5px 0; /* Dá um espaçamento superior e inferior */
+    border-radius: 15px;
+    width: 25%; 
+    background-color: #333; 
+   
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    margin: 5px 0; 
     position: relative;
-    /* Move para a esquerda, deixando menos centralizado */
+    
 }
 
 

@@ -15,16 +15,19 @@ export function CadastroUsuario() {
 
     const navigate = useNavigate();
 
+    const tipoUsuario = 1
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (isFormValid()) {
-            await UsuarioApi.criarAsync(nome, email, senha);
+            await UsuarioApi.criarAsync(nome, email, senha, tipoUsuario);
+            localStorage.getItem('usuarioNome', nome)
+            localStorage.setItem('tipoUsuario', tipoUsuario)
             navigate("/");
 
         } else {
             alert("Por favor, preencha todos os campos.");
         }
-    }
+    };
 
     const isFormValid = () => {
         return nome && email && senha;

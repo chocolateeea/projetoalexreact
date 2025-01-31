@@ -77,20 +77,20 @@
  
  .corpo {
     display: flex;
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    align-items: center; /* Centraliza os itens verticalmente */
-    height: 100vh; /* Garante que o container ocupe toda a altura da tela */
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
 }
 
 .corpo2 {
-    border-radius: 15px; /* Aumenta o arredondamento para dar um visual mais suave */
-    width: 25%; /* Um pouco mais largo para dar um toque elegante */
-    background-color: #333; /* Um tom de preto mais suave */
-    /* Adiciona algum espaçamento interno */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar um efeito de profundidade */
-    margin: 5px 0; /* Dá um espaçamento superior e inferior */
+    border-radius: 15px; 
+    width: 25%; 
+    background-color: #333; 
+   
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    margin: 5px 0; 
     position: relative;
-    /* Move para a esquerda, deixando menos centralizado */
+    
 }
 
 
